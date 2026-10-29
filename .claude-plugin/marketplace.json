@@ -1,0 +1,18 @@
+{
+  "name": "caldo-skills",
+  "owner": {
+    "name": "Maze"
+  },
+  "metadata": {
+    "description": "Claude Code skills from Caldo"
+  },
+  "plugins": [
+    {
+      "name": "untangle-codebase",
+      "description": "Untangle a whole codebase in one pass, so agents working in it read less per change, break less without noticing, and debug faster.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/untangle-codebase"]
+    }
+  ]
+}
