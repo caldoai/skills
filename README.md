@@ -2,7 +2,19 @@
 
 ## Install
 
-Add this repo as a plugin marketplace:
+Install with the [skills CLI](https://github.com/vercel-labs/skills), which works with Claude Code, Cursor, Codex and other agents:
+
+```
+npx skills add caldoai/skills
+```
+
+To install a single skill:
+
+```
+npx skills add caldoai/skills --skill untangle-codebase
+```
+
+Or, in Claude Code, add this repo as a plugin marketplace:
 
 ```
 /plugin marketplace add caldoai/skills
