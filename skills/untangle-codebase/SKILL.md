@@ -18,12 +18,13 @@ Treat this as a goal.
 
 **1. Ask**
 
-Besides untangling the codebase, there are two other things you may do:
+Besides untangling the codebase, there are three other things you may do:
 
 | Addition | What it does |
 | --- | --- |
 | **Comments** | Remove comments that only restate the code. |
 | **Tests** | Remove tests that wouldn't catch a real bug, and fix the ones that fail without one. |
+| **Checkpoints** | Pause for approval after the redesign, take a test baseline before changing anything, and verify every fix against it. |
 
 List these (with their exact descriptions) for the user and ask which ones to do. Then do only those.
 
@@ -69,7 +70,16 @@ Ask the same thing of every fix, even one that looks better in the code: pieces 
 
 Write each fix above the problems it solves, as in the [decision log example](#decision-log-example).
 
+If the user chose Checkpoints, show them the decision log now and wait for their approval before changing anything. Fixes they reject come off the list.
+
 **4. Fix everything on the list**
+
+If the user chose Checkpoints, before the first change:
+
+- Work out how this project runs its tests, from its scripts, config or CI, and run them. Write down in the decision log what passes and what already fails. That baseline is the only proof that behavior is unchanged at the end, and "unchanged" can't be checked without one.
+- Work on a branch, and commit each fix on its own, so any one fix can be reverted without losing the others.
+
+With Checkpoints, apply one fix at a time, running the tests after each one. If a fix breaks a test that passed in the baseline and the break isn't the fix working as intended, revert that fix, note why in the decision log, and move on. Never leave the codebase worse than the baseline.
 
 Remove the special cases the redesign makes unnecessary, and keep the ones the system still needs. Don't go looking for bugs separately. A structural fix may fix some along the way, which is fine.
 
@@ -95,7 +105,7 @@ You're done when:
 - A typical change lands in one place.
 - Every import is reasonable, and nothing imports anything more volatile than itself.
 - Subagents have no issues left that are worth fixing.
-- Intended behavior is the same as when you started, apart from bugs the refactor fixed. Test this at the end.
+- Intended behavior is the same as when you started, apart from bugs the refactor fixed. Test this at the end. If the user chose Checkpoints, this means the final test run matches the baseline: everything that passed before still passes.
 
 **Tips**
 
