@@ -73,6 +73,8 @@ Write each fix above the problems it solves, as in the [decision log example](#d
 
 Remove the special cases the redesign makes unnecessary, and keep the ones the system still needs. Don't go looking for bugs separately. A structural fix may fix some along the way, which is fine.
 
+Some fixes change behavior that no test covers, like which element a UI script reads from. Mark those in the decision log, so they can be checked by hand instead of trusted.
+
 If the user chose Comments:
 
 - Comments that restate the implementation, like `// sort first so the binary search works`, only change when it does, so they have no reason of their own to change. Remove them, even if they're phrased as a why.
@@ -96,6 +98,7 @@ You're done when:
 - Every import is reasonable, and nothing imports anything more volatile than itself.
 - Subagents have no issues left that are worth fixing.
 - Intended behavior is the same as when you started, apart from bugs the refactor fixed. Test this at the end.
+- Every fix no test covers is listed for the user, with what to check.
 
 **Tips**
 
