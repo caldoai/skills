@@ -29,6 +29,7 @@ To install by hand instead, copy a skill's folder into `~/.claude/skills/`.
 | Skill | Description | Install |
 | --- | --- | --- |
 | [untangle-codebase](skills/untangle-codebase/SKILL.md) | Untangle a codebase for agents. | `/plugin install untangle-codebase@caldo-skills` |
+| [prune-tests](skills/prune-tests/SKILL.md) | Prune tests that guard no behavior. | `/plugin install prune-tests@caldo-skills` |
 
 ## Adding a skill
 

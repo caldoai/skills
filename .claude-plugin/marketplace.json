@@ -13,6 +13,13 @@
       "source": "./",
       "strict": false,
       "skills": ["./skills/untangle-codebase"]
+    },
+    {
+      "name": "prune-tests",
+      "description": "Prune tests that guard no behavior.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/prune-tests"]
     }
   ]
 }
